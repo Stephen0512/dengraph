@@ -84,7 +84,7 @@ class AdjacencyGraph(dengraph.graph.Graph):
 
     def __contains__(self, item):
         # a:b -> slice -> edge
-        if item.__class__ == slice:
+        if isinstance(item, slice):
             node_from, node_to = item.start, item.stop
             return node_from in self._adjacency and node_to in self._adjacency[node_from]
         # node
